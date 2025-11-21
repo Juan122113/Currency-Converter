@@ -12,16 +12,27 @@ export function CurrencyConverter() {
   }
 
   let coinsObjKeys = Object.keys(coinsObj);
+  let targCount;
 
   const [inputNumber, setInputNumber] = useState(1);
 
   // const [coin, set];
   const [startCurr, setStartCurr] = useState("USD");
-  const [targCurr, setTargCurr] = useState("EUR");
+  const [targCurr, setTargCurr] = useState("USD");
 
   // function onChange()
 
   console.log(inputNumber);
+
+  function count() {
+    let startCount = inputNumber * coinsObj[startCurr];
+    targCount = startCount * coinsObj[targCurr];
+    return targCount.toFixed(2);
+  }
+
+  const finalCount = useMemo(() =>count(), [startCurr]);
+
+  console.log(coinsObj[startCurr]);
   
   return (
     <form action="" style={{display: "flex", flexDirection: "column"}}>
@@ -49,7 +60,7 @@ export function CurrencyConverter() {
           <option value={c}>{c}</option>
         )}
       </select>
-      <p>Converted Amount: {inputNumber} {targCurr}</p>
+      <p>Converted Amount: {count()} {targCurr}</p>
     </form>
   );
 
