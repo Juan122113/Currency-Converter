@@ -45,7 +45,7 @@ export function CurrencyConverter() {
           <option value={c}>{c}</option>
         )} */}
         {coinsObjKeys.map((c) => 
-          <option value={c}>{c}</option>
+          <option value={c} key={c}>{c}</option>
         )}
         {/* {
           <option value={coinsObj.key}></option>
@@ -57,7 +57,7 @@ export function CurrencyConverter() {
           <option>{c}</option>
         )} */}
         {coinsObjKeys.map((c) => 
-          <option value={c}>{c}</option>
+          <option value={c} key={c}>{c}</option>
         )}
       </select>
       <p>Converted Amount: {count()} {targCurr}</p>
